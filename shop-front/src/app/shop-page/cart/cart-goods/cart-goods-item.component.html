@@ -1,0 +1,40 @@
+<form class="item" [formGroup]="form" (submit)="submit(purchase.id)">
+    <p class="name">
+        {{ purchase.title }} {{ purchase.price }}
+    </p>
+    <div class="count">
+        <tui-input-count	  
+        formControlName="count" 
+        [(ngModel)]="purchase.count"         
+	      [min]="1"      
+        class="tui-space_left-2"
+        size="s"
+	    >
+	    Количество
+	    <input
+	    tuiTextfield
+	    placeholder="1" 
+      [disabled]="!edit"
+	    />
+	    </tui-input-count>
+        <button
+        tuiIconButton
+        appearance="secondary"
+        class="tui-space_left-2"
+        icon="tuiIconPlus"
+        size="s"
+        type="submit"
+        >
+      </button>
+      <button
+        tuiIconButton
+        appearance="secondary"
+        class="tui-space_left-2 tui-space_right-2"
+        icon="tuiIconTrashLarge"
+        size="s"
+        type="button"
+        (click)="deletePurchase()"
+        >
+      </button>
+    </div>
+</form>

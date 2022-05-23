@@ -1,0 +1,51 @@
+<form class="cart-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="tui-form__row">
+        <tui-input tuiTextfieldSize="m" 
+        formControlName="name" 
+        [tuiTextfieldLabelOutside]="true" 
+        type="text"
+        >
+        Имя*
+        </tui-input>
+        <tui-error formControlName="name" [error]="[] | tuiFieldError | async"></tui-error>
+      </div>
+
+    <div class="tui-form__row">
+        <tui-input tuiTextfieldSize="m" 
+        formControlName="email" 
+        [tuiTextfieldLabelOutside]="true" 
+        type="email"
+        >
+          Email*
+        </tui-input>
+        <tui-error formControlName="email" [error]="[] | tuiFieldError | async"></tui-error>
+      </div>
+
+      <div class="tui-form__row">
+        <tui-select
+        class="b-form"
+        tuiTextfieldSize="m"
+        [(ngModel)]="value"
+        formControlName="address"
+        >Адрес*
+        <tui-data-list-wrapper
+        *tuiDataList
+        [items]="countryService.countries"
+        >
+        </tui-data-list-wrapper>
+        </tui-select>
+        <tui-error formControlName="address" [error]="[] | tuiFieldError | async"></tui-error>
+      </div>
+    
+
+    <button
+        tuiButton
+        appearance="secondary"
+        class="tui-space_top-2"
+        size="s"
+        type="submit"
+    >
+    Сохранить
+    </button>
+
+</form>
