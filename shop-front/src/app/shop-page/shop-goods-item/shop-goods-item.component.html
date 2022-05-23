@@ -1,0 +1,28 @@
+<form class="item" [formGroup]="form" (submit)="submit(purchase.id)">
+    <p class="name">
+      {{ purchase.title }} {{ purchase.price }}
+    </p>
+    <div class="count">
+        <tui-input-count	
+        formControlName="count"            
+	      [min]="1"
+        size="s"
+        class="tui-space_left-2"
+	    >
+	    Количество
+	    <input
+	    tuiTextfield
+	    placeholder="1"
+	    />
+	    </tui-input-count>
+        <button
+        type="submit"
+        tuiIconButton
+        appearance="secondary"
+        class="tui-space_left-2 tui-space_right-2"
+        icon="tuiIconCheckLarge"
+        size="s"
+        >
+      </button>
+    </div>
+</form>
